@@ -1,5 +1,6 @@
 from bottle import route, run, request, get, post, template
-import pymysql.cursors, os
+import pymysql.cursors
+from sys import argv
 
 @route('/', method='get')
 def signUpOrLogin():
@@ -53,5 +54,4 @@ def nyr():
 
 
 if __name__ == "__main__":
-	port = int(os.environ.get("PORT", 5000))
-	run(host='0.0.0.0', port=port, debug=True)
+	run(host='0.0.0.0', port=argv[1], debug=True)
